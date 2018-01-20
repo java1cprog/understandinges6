@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Block Bindings</title>
+</head>
+
+<body>
+    <h2>Block Binding in Loops</h2>
+    <h3>Constant Declarations in Loops</h3>
+    <script>
+        var funcs = [];
+
+        // throws an error after one iteration
+        for (const i = 0; i < 10; i++) {
+            funcs.push(function() {
+                console.log(i);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
