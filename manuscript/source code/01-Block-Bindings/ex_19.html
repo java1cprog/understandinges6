@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Block Bindings</title>
+</head>
+
+<body>
+    <h2>Block Binding in Loops</h2>
+    <h3>Constant Declarations in Loops</h3>
+    <script>
+        var funcs = [],
+            object = {
+                a: true,
+                b: true,
+                c: true
+            };
+
+        // doesn't cause an error
+        for (const key in object) {
+            funcs.push(function() {
+                console.log(key);
+            });
+        }
+
+        funcs.forEach(function(func) {
+            func(); // outputs "a", then "b", then "c"
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Block Bindings</title>
+</head>
+
+<body>
+    <h2>Block Binding in Loops</h2>
+    <h3>Functions in Loops</h3>
+    <script>
+        var funcs = [];
+
+        for (var i = 0; i < 10; i++) {
+            funcs.push((function(value) {
+                return function() {
+                    console.log(value);
+                }
+            }(i)));
+        }
+
+        funcs.forEach(function(func) {
+            func(); // outputs 0, then 1, then 2, up to 9
+        });
+
+    </script>
+</body>
+
+</html>

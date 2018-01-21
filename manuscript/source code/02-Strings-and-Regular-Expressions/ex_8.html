@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Strings and Regular Expressions</title>
+</head>
+
+<body>
+    <h2>Better Unicode Support</h2>
+    <h3>The u Flag in Action</h3>
+    <h4>Counting Code Points</h4>
+    <script>
+        function codePointLength(text) {
+            var result = text.match(/[\s\S]/gu);
+            return result ? result.length : 0;
+        }
+
+        console.log(codePointLength("abc")); // 3
+        console.log(codePointLength("𠮷bc")); // 3
+
+    </script>
+</body>
+
+</html>

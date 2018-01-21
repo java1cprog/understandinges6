@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Block Bindings</title>
+</head>
+
+<body>
+    <h2>Block Binding in Loops</h2>
+
+    <script>
+        function process(value) {
+            console.log(value);
+        }
+        var items = [];
+        for (var i = 0; i < 10; i++) {
+            items[i]="a "+i;
+        }
+        for (var i = 0; i < 10; i++) {
+            process(items[i]);
+        }
+
+        // i is still accessible here
+        console.log(i);
+
+    </script>
+</body>
+
+</html>

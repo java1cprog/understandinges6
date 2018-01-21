@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Block Bindings</title>
+</head>
+
+<body>
+    <h2>Block-Level Declarations</h2>
+    <h3>The Temporal Dead Zone</h3>
+    <script>
+        const condition = true;
+        if (condition) {
+            console.log(typeof value); // ReferenceError!
+            let value = "blue";
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Block Bindings</title>
+</head>
+
+<body>
+    <h2>Block-Level Declarations</h2>
+    <h3>No Redeclaration</h3>
+    <script>
+        var count = 30;
+        var condition = true;
+        // Does not throw an error
+        if (condition) {
+
+            let count = 40;
+
+            // more code
+        }
+        console.log(count);
+
+    </script>
+</body>
+
+</html>
