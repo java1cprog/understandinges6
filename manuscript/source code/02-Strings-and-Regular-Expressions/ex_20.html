@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Strings and Regular Expressions</title>
+</head>
+
+<body>
+    <h2>Other String Changes</h2>
+    <h3>Duplicating Regular Expressions</h3>
+
+    <script>
+        var re1 = /ab/i,
+
+            // throws an error in ES5, okay in ES6
+            re2 = new RegExp(re1, "g");
+
+        console.log(re1);
+        console.log(re2);
+        console.log(re1 == re2);
+
+    </script>
+</body>
+
+</html>

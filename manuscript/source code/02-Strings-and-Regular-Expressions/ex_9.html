@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Strings and Regular Expressions</title>
+</head>
+
+<body>
+    <h2>Better Unicode Support</h2>
+    <h3>The u Flag in Action</h3>
+    <h4>Determining Support for the u Flag</h4>
+    <script>
+        function hasRegExpU() {
+            try {
+                var pattern = new RegExp(".", "u");
+                return true;
+            } catch (ex) {
+                return false;
+            }
+        }
+        
+        console.log(hasRegExpU());
+
+    </script>
+</body>
+
+</html>
