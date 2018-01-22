@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Functions with Default Parameter Values</h2>
+    <h3>Default Parameter Values in ECMAScript 6</h3>
+
+    <script>
+        function makeRequest(url, timeout = 2000, callback = function() {alert(url);}) {
+
+            // the rest of the function
+            setTimeout(callback, timeout);
+
+        }
+
+        
+        // uses default timeout and callback
+        makeRequest("/foo");
+
+        // uses default callback
+        makeRequest("/foo", 500);
+
+        // doesn't use defaults
+        makeRequest("/foo", 500, function(body) {
+            doSomething(body);
+        });
+        
+        function doSomething(){
+            console.log("do something");
+        }
+    </script>
+</body>
+
+</html>

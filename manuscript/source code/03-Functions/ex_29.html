@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>ECMAScript 6's name Property</h2>
+    <h3>Special Cases of the name Property</h3>
+    <script>
+        var doSomething = function doSomethingElse() {
+            // ...
+        };
+
+        var person = {
+            get firstName() {
+                return "Nicholas"
+            },
+            sayName: function() {
+                console.log(this.name);
+            }
+        }
+
+        console.log(doSomething.name); // "doSomethingElse"
+        console.log(person.sayName.name); // "sayName"
+
+        var descriptor = Object.getOwnPropertyDescriptor(person, "firstName");
+        console.log(descriptor.get.name); // "get firstName"
+
+    </script>
+</body>
+
+</html>

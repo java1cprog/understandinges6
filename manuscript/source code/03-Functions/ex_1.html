@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Functions with Default Parameter Values</h2>
+    <h3>Simulating Default Parameter Values in ECMAScript 5</h3>
+
+    <script>
+        function makeRequest(url, timeout, callback) {
+
+            timeout = timeout || 2000;
+            callback = callback || function() {
+                alert("Hello!");
+            };
+
+            // the rest of the function
+            setTimeout(callback, timeout);
+            
+        }
+        
+        makeRequest();
+    </script>
+</body>
+
+</html>

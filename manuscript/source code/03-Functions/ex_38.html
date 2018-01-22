@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Block-Level Functions</h2>
+    <h3>Deciding When to Use Block-Level Functions</h3>
+
+    <script>
+        "use strict";
+
+        if (true) {
+
+            console.log(typeof doSomething); // throws error
+
+            let doSomething = function() {
+                // ...
+            }
+
+            doSomething();
+        }
+
+        console.log(typeof doSomething);
+
+    </script>
+</body>
+
+</html>

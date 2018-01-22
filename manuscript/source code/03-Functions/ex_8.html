@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Functions with Default Parameter Values</h2>
+    <h3>How Default Parameter Values Affect the arguments Object</h3>
+
+    <script>
+        // not in strict mode
+        function mixArgs(first, second = "b") {
+            console.log(arguments.length);
+            console.log(first === arguments[0]);
+            console.log(second === arguments[1]);
+            first = "c";
+            second = "d"
+            console.log(first === arguments[0]);
+            console.log(second === arguments[1]);
+        }
+
+        mixArgs("a");
+
+    </script>
+</body>
+
+</html>

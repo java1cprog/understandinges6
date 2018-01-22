@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Clarifying the Dual Purpose of Functions</h2>
+    <h3>The new.target MetaProperty</h3>
+    <script>
+        function Person(name) {
+            console.log(new.target);
+            if (typeof new.target !== "undefined") {
+                this.name = name; // using new
+            } else {
+                throw new Error("You must use new with Person.")
+            }
+        }
+
+        var person = new Person("Nicholas");
+        var notAPerson = Person.call(person, "Michael"); // error!
+       
+
+    </script>
+</body>
+
+</html>

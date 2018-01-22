@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Functions with Default Parameter Values</h2>
+    <h3>Default Parameter Expressions</h3>
+
+    <script>
+        let value = 5;
+
+        function getValue() {
+            return value++;
+        }
+
+        function add(first, second = getValue()) {
+            return first + second;
+        }
+
+        console.log(add(1, 1)); // 2
+        console.log(add(1)); // 6
+        console.log(add(1)); // 7
+
+    </script>
+</body>
+
+</html>

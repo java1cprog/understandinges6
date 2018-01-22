@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Working with Unnamed Parameters</h2>
+    <h3>Rest Parameters</h3>
+    <h4>Rest Parameter Restrictions</h4>
+
+    <script>
+        function pick(object, ...keys) {
+            let result = Object.create(null);
+
+            for (let i = 0, len = keys.length; i < len; i++) {
+                result[keys[i]] = object[keys[i]];
+            }
+
+            return result;
+        }
+
+        let object = {
+
+            // Syntax error: Can't use rest param in setter
+            set name(...value) {
+                // do something
+            }
+        };
+
+        let book = {
+            title: "Understanding ECMAScript 6",
+            author: "Nicholas C. Zakas",
+            year: 2015
+        };
+
+        let bookData = pick(book, "author", "year");
+
+        console.log(bookData.author); // "Nicholas C. Zakas"
+        console.log(bookData.year); // 2015
+        console.log("number of arguments of pick function = ", pick.length); // 1
+
+    </script>
+</body>
+
+</html>

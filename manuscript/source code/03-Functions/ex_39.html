@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Block-Level Functions</h2>
+    <h3>Block-Level Functions in Nonstrict Mode</h3>
+
+    <script>
+        // ECMAScript 6 behavior
+        if (true) {
+
+            console.log(typeof doSomething); // "function"
+
+            function doSomething() {
+                // ...
+            }
+
+            doSomething();
+        }
+
+        console.log(typeof doSomething); // "function"
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Arrow Functions</h2>
+    <h3>Creating Immediately-Invoked Function Expressions</h3>
+
+    <script>
+        var getTempItem = id => ({
+            id: id,
+            name: "Temp"
+        });
+
+        console.log(getTempItem(1));
+
+        // effectively equivalent to:
+
+        var getTempItem = function(id) {
+
+            return {
+                id: id,
+                name: "Temp"
+            };
+        };
+        console.log(getTempItem(10));
+
+    </script>
+</body>
+
+</html>

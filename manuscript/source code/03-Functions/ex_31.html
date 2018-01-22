@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Clarifying the Dual Purpose of Functions</h2>
+
+    <script>
+        function Person(name) {
+            this.name = name;
+        }
+
+        var person = new Person("Nicholas");
+        var notAPerson = Person("Nicholas");
+
+        console.log(person); // "[Object object]"
+        console.log(notAPerson); // "undefined"
+
+    </script>
+</body>
+
+</html>

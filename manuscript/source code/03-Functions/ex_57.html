@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+</head>
+
+<body>
+    <h2>Tail Call Optimization</h2>
+    <h3>How to Harness Tail Call Optimization</h3>
+
+    <script>
+        {
+
+            function factorial(n) {
+
+                if (n <= 1) {
+                    return 1;
+                } else {
+
+                    // not optimized - must multiply after returning
+                    return n * factorial(n - 1);
+                }
+            }
+
+        } {
+            function factorial(n, p = 1) {
+
+                if (n <= 1) {
+                    return 1 * p;
+                } else {
+                    let result = n * p;
+
+                    // optimized
+                    return factorial(n - 1, result);
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
