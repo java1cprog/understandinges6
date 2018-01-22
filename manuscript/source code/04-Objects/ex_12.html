@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Expanded Object Functionality</title>
+</head>
+
+<body>
+    <h2>New Methods</h2>
+    <h3>The Object.assign() Method</h3>
+    <script>
+        var receiver = {},
+            supplier = {
+                get name() {
+                    return "file.js"
+                }
+            };
+
+        Object.assign(receiver, supplier);
+
+        var descriptor = Object.getOwnPropertyDescriptor(receiver, "name");
+
+        console.log(descriptor.value); // "file.js"
+        console.log(descriptor.get); // undefined
+
+    </script>
+</body>
+
+</html>

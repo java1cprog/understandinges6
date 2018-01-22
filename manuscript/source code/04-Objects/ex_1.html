@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Expanded Object Functionality</title>
+</head>
+
+<body>
+    <h2>Object Literal Syntax Extensions</h2>
+    <h3>Property Initializer Shorthand</h3>
+    <script>
+        {
+            let person = function createPerson(name, age) {
+                return {
+                    name: name,
+                    age: age
+                };
+            };
+            console.log(person);
+        }
+
+        {
+            let person = function createPerson(name, age) {
+                return {
+                    name,
+                    age
+                };
+            }
+            console.log(person);
+        }
+
+    </script>
+</body>
+
+</html>

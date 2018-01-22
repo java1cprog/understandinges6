@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Expanded Object Functionality</title>
+</head>
+
+<body>
+    <h2>New Methods</h2>
+    <h3>The Object.assign() Method</h3>
+    <script>
+        function mixin(receiver, supplier) {
+            Object.keys(supplier).forEach(function(key) {
+                receiver[key] = supplier[key];
+            });
+
+            return receiver;
+        }
+
+        function EventTarget() { /*...*/ }
+        EventTarget.prototype = {
+            constructor: EventTarget,
+            emit: function() { /*...*/ },
+            on: function() { /*...*/ }
+        };
+
+        var myObject = {};
+        mixin(myObject, EventTarget.prototype);
+
+        myObject.emit("somethingChanged");
+
+    </script>
+</body>
+
+</html>

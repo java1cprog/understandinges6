@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Expanded Object Functionality</title>
+</head>
+
+<body>
+    <h2>More Powerful Prototypes</h2>
+    <h3>Easy Prototype Access with Super References</h3>
+    <script>
+        let person = {
+            getGreeting() {
+                return "Hello";
+            }
+        };
+
+        let dog = {
+            getGreeting() {
+                return "Woof";
+            }
+        };
+
+
+      
+
+            let friend = {
+                getGreeting: function() {
+                    // syntax error
+                    return super.getGreeting() + ", hi!";
+                }
+            };
+        
+
+            // set prototype to person
+            Object.setPrototypeOf(friend, person);
+            console.log(friend.getGreeting()); // "Hello, hi!"
+            console.log(Object.getPrototypeOf(friend) === person); // true
+
+            // set prototype to dog
+            Object.setPrototypeOf(friend, dog);
+            console.log(friend.getGreeting()); // "Woof, hi!"
+            console.log(Object.getPrototypeOf(friend) === dog); // true
+
+      
+
+    </script>
+</body>
+
+</html>

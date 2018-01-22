@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Expanded Object Functionality</title>
+</head>
+
+<body>
+    <h2>New Methods</h2>
+    <h3>The Object.assign() Method</h3>
+    <script>
+        function mixin(receiver, supplier) {
+            Object.keys(supplier).forEach(function(key) {
+                receiver[key] = supplier[key];
+            });
+
+            return receiver;
+        }
+
+        let supplier = {
+            "a": "a1",
+            "b": "b2",
+        };
+        let receiver = {};
+        mixin(receiver, supplier);
+        
+        console.log(receiver);
+        console.log(supplier);
+        
+        
+    </script>
+</body>
+
+</html>

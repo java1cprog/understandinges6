@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Expanded Object Functionality</title>
+</head>
+
+<body>
+    <h2>New Methods</h2>
+    <h3>The Object.assign() Method</h3>
+    <script>
+        var receiver = {};
+
+        Object.assign(receiver, {
+            type: "js",
+            name: "file.js"
+        }, {
+            type: "css"
+        }, {
+            type: "html"
+        });
+
+        console.log(receiver.type); // "css"
+        console.log(receiver.name); // "file.js"
+
+    </script>
+</body>
+
+</html>
