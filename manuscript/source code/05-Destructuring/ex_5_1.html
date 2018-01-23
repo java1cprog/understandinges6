@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Object Destructuring</h2>
+    <h4>Destructuring Assignment</h4>
+    <script>
+        let node = {
+                type: "Identifier",
+                name: "foo"
+            },
+            type = "Literal",
+            name = 5;
+
+        function outputInfo(value) {
+            console.log(value === node); // true
+        }
+
+        outputInfo({
+            type,
+            name
+        } = 
+                   //node
+                   //null
+                   undefined
+                  );
+
+        console.log(type); // "Identifier"
+        console.log(name); // "foo"
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Object Destructuring</h2>
+    <h4>Nested Object Destructuring</h4>
+
+    <script>
+        let node = {
+            type: "Identifier",
+            name: "foo",
+            loc: {
+                start: {
+                    line: 1,
+                    column: 1
+                },
+                end: {
+                    line: 1,
+                    column: 4
+                }
+            }
+        };
+
+        // extract node.loc.start
+        let {
+            loc: {
+                start: localStart
+            }
+        } = node;
+
+        console.log(localStart.line); // 1
+        console.log(localStart.column); // 1
+
+    </script>
+</body>
+
+</html>

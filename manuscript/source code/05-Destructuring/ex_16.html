@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Array Destructuring</h2>
+    <h4>Destructuring Assignment</h4>
+
+    <script>
+        {
+            // Swapping variables in ECMAScript 5
+            let a = 1,
+                b = 2,
+                tmp;
+
+            tmp = a;
+            a = b;
+            b = tmp;
+
+            console.log(a); // 2
+            console.log(b); // 1
+        } 
+        
+        
+        {
+            // Swapping variables in ECMAScript 6
+            let a = 1,
+                b = 2;
+
+            [a, b] = [b, a];
+
+            console.log(a); // 2
+            console.log(b); // 1
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Object Destructuring</h2>
+    <h4>Default Values</h4>
+    <script>
+        let node = {
+            type: "Identifier",
+            name: "foo"
+        };
+
+        let {
+            type,
+            name,
+            value = true
+        } = node;
+
+        console.log(type); // "Identifier"
+        console.log(name); // "foo"
+        console.log(value); // true
+
+    </script>
+</body>
+
+</html>

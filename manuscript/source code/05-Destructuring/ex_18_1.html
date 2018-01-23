@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Array Destructuring</h2>
+    <h4>Nested Destructuring</h4>
+
+    <script>
+        let colors = ["red", ["green", "lightgreen"], "blue"];
+
+        // later
+
+        let [firstColor, [secondColor,third],fourth] = colors;
+
+        console.log(firstColor); // "red"
+        console.log(secondColor); // "green"
+        console.log(third); // "lightgreen"
+        console.log(fourth); // "blue"
+
+    </script>
+</body>
+
+</html>

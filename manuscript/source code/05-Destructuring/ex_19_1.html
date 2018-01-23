@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Array Destructuring</h2>
+    <h4>Rest Items</h4>
+
+    <script>
+        let colors = ["red", "green", "blue"];
+
+        let [firstColor, ...restColors] = colors;
+
+        console.log(firstColor); // "red"
+        console.log(restColors.length); // 2
+
+        for (let i = 0; i < restColors.length; i++) {
+            console.log(restColors[i]);
+        }
+
+    </script>
+</body>
+
+</html>

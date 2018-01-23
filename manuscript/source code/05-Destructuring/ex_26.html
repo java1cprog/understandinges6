@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Destructured Parameters</h2>
+    <h3>Destructured Parameters are Required</h3>
+
+    <script>
+        function setCookie(name, value, {
+            secure,
+            path,
+            domain,
+            expires
+        }={}) {
+
+            // code to set the cookie
+            console.log(name, value, secure, path, domain, expires);
+        }
+
+        setCookie("type", "js"
+//                  , 
+//                  {
+//            secure: true,
+//            expires: 60000
+//        }
+                 
+                 );
+
+    </script>
+</body>
+
+</html>

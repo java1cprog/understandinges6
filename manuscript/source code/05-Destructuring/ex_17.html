@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Array Destructuring</h2>
+    <h4>Default Values</h4>
+
+    <script>
+        let colors = ["red"];
+
+        let [firstColor, secondColor = "green"] = colors;
+
+        console.log(firstColor); // "red"
+        console.log(secondColor); // "green"
+
+    </script>
+</body>
+
+</html>

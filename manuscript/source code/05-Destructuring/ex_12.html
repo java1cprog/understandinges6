@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Destructuring for Easier Data Access</title>
+</head>
+
+<body>
+    <h2>Object Destructuring</h2>
+    <h4>Syntax Gotcha</h4>
+
+    <script>
+        
+        let node = {
+            type: "Identifier",
+            name: "foo",
+            loc: {
+                start: {
+                    line: 1,
+                    column: 1
+                },
+                end: {
+                    line: 1,
+                    column: 4
+                }
+            }
+        };
+        
+        // no variables declared!
+        let {
+            loc: {}
+        } = node;
+
+        console.log(node);
+        console.log(loc);
+
+    </script>
+</body>
+
+</html>
