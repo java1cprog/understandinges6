@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Exposing Internal Operations with Well-Known Symbols</h2>
+    <h3>The Symbol.hasInstance Property</h3>
+
+    <script>
+        function MyObject() {
+            // ...
+        }
+
+        Object.defineProperty(MyObject, Symbol.hasInstance, {
+            value: function(v) {
+                return false;
+            }
+        });
+
+        let obj = new MyObject();
+
+        console.log(obj instanceof MyObject); // false
+
+    </script>
+</body>
+
+</html>

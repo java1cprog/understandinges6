@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Exposing Internal Operations with Well-Known Symbols</h2>
+    <h3>The Symbol.hasInstance Property</h3>
+
+    <script>
+        function SpecialNumber() {
+            // empty
+        }
+
+        Object.defineProperty(SpecialNumber, Symbol.hasInstance, {
+            value: function(v) {
+                return (v instanceof Number) && (v >= 1 && v <= 100);
+            }
+        });
+
+        let two = new Number(2),
+            zero = new Number(0);
+
+        console.log(two instanceof SpecialNumber); // true
+        console.log(zero instanceof SpecialNumber); // false
+
+    </script>
+</body>
+
+</html>

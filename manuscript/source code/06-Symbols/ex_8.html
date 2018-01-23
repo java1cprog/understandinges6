@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Retrieving Symbol Properties</h2>
+    <script>
+        let uid = Symbol.for("uid"),
+            desc = String(uid);
+
+        console.log(desc); // "Symbol(uid)"
+
+    </script>
+</body>
+
+</html>

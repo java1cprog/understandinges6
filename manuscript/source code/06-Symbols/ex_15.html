@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Exposing Internal Operations with Well-Known Symbols</h2>
+    <h3>The Symbol.isConcatSpreadable Symbol</h3>
+
+    <script>
+        let collection = {
+            0: "Hello",
+            1: "world",
+            length: 2,
+            [Symbol.isConcatSpreadable]: 
+            true
+            //false
+        };
+
+        let messages = ["Hi"].concat(collection);
+
+        console.log(messages.length); // 3
+        console.log(messages); // ["Hi","Hello","world"]
+
+    </script>
+</body>
+
+</html>

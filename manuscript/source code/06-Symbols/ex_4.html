@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Using Symbols</h2>
+    <script>
+        let firstName = Symbol("first name");
+
+        // use a computed object literal property
+        let person = {
+            [firstName]: "Nicholas"
+        };
+
+        // make the property read only
+        Object.defineProperty(person, firstName, {
+            writable: false
+        });
+
+        let lastName = Symbol("last name");
+
+        Object.defineProperties(person, {
+            [lastName]: {
+                value: "Zakas",
+                writable: false
+            }
+        });
+
+        console.log(person[firstName]); // "Nicholas"
+        console.log(person[lastName]); // "Zakas"
+
+        console.log(person.first_name); // undefined
+        console.log(person.last_name); // undefined
+        console.log(person);
+
+    </script>
+</body>
+
+</html>

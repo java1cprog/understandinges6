@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Exposing Internal Operations with Well-Known Symbols</h2>
+    <h3>The Symbol.isConcatSpreadable Symbol</h3>
+
+    <script>
+        let colors1 = ["red", "green"],
+            colors2 = colors1.concat(["blue", "black"], "brown");
+
+        console.log(colors2.length); // 5
+        console.log(colors2); // ["red","green","blue","black","brown"]
+
+    </script>
+</body>
+
+</html>

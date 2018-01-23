@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Exposing Internal Operations with Well-Known Symbols</h2>
+    <h3>The Symbol.toStringTag Symbol</h3>
+    <h4>The ECMAScript 6 Answer</h4>
+
+    <script>
+        function Person(name) {
+            this.name = name;
+        }
+
+        Person.prototype[Symbol.toStringTag] = "Person";
+
+        let me = new Person("Nicholas");
+
+        console.log(me.toString()); // "[object Person]"
+        console.log(Object.prototype.toString.call(me)); // "[object Person]"
+
+    </script>
+</body>
+
+</html>

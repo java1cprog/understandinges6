@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Sharing Symbols</h2>
+    <script>
+        let uid = Symbol.for("uid");
+        let object = {};
+
+        object[uid] = "12345";
+
+        console.log(object[uid]); // "12345"
+        console.log(uid); // "Symbol(uid)"
+
+    </script>
+</body>
+
+</html>

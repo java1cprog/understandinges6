@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Exposing Internal Operations with Well-Known Symbols</h2>
+    <h3>The Symbol.toPrimitive Method</h3>
+
+    <script>
+        function Temperature(degrees) {
+            this.degrees = degrees;
+        }
+
+        Temperature.prototype[Symbol.toPrimitive] = function(hint) {
+
+            switch (hint) {
+                case "string":
+                    return this.degrees + "\u00b0"; // degrees symbol
+
+                case "number":
+                    return this.degrees;
+
+                case "default":
+                    return this.degrees + " degrees";
+            }
+        };
+
+        let freezing = new Temperature(32);
+
+        console.log(freezing + "!"); // "32 degrees!"
+        console.log(freezing / 2); // 16
+        console.log(String(freezing)); // "32°"
+
+    </script>
+</body>
+
+</html>

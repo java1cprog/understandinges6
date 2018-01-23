@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbols and Symbol Properties</title>
+</head>
+
+<body>
+    <h2>Exposing Internal Operations with Well-Known Symbols</h2>
+    <h3>The Symbol.toStringTag Symbol</h3>
+    <h4>A Workaround for the Identification Problem</h4>
+
+    <script>
+        function supportsNativeJSON() {
+            return typeof JSON !== "undefined" &&
+                Object.prototype.toString.call(JSON) === "[object JSON]";
+        }
+
+        console.log(supportsNativeJSON());
+
+    </script>
+</body>
+
+</html>
