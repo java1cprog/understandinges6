@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weak Sets</title>
+</head>
+
+<body>
+    <h2>Sets in ECMAScript 6</h2>
+    <h3>Creating a Weak Set</h3>
+    
+    <script>
+        let set = new WeakSet(),
+            key = {};
+
+        // add the object to the set
+        set.add(key);
+
+        console.log(set.has(key)); // true
+
+        set.delete(key);
+
+        console.log(set.has(key)); // false
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weak Sets</title>
+</head>
+
+<body>
+    <h2>Maps in ECMAScript 6</h2>
+    <h3>Weak Maps</h3>
+    <h4>Private Object Data</h4>
+
+
+    <script>
+        let Person = (function() {
+
+            let privateData = new WeakMap();
+
+            function Person(name) {
+                privateData.set(this, {
+                    name: name
+                });
+            }
+
+            Person.prototype.getName = function() {
+                return privateData.get(this).name;
+            };
+
+            return Person;
+        }());
+        
+        let item = new Person("Nicholas");
+        let name = item.getName();
+        item = null;
+        console.log(name);
+
+    </script>
+</body>
+
+</html>

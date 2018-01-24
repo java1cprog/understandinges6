@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weak Sets</title>
+</head>
+
+<body>
+    <h2>Maps in ECMAScript 6</h2>
+    <h3>Map Methods</h3>
+    <script>
+        let map = new Map();
+        map.set("name", "Nicholas");
+        map.set("age", 25);
+
+        console.log(map.size); // 2
+
+        console.log(map.has("name")); // true
+        console.log(map.get("name")); // "Nicholas"
+
+        console.log(map.has("age")); // true
+        console.log(map.get("age")); // 25
+
+        map.delete("name");
+        console.log(map.has("name")); // false
+        console.log(map.get("name")); // undefined
+        console.log(map.size); // 1
+
+        map.clear();
+        console.log(map.has("name")); // false
+        console.log(map.get("name")); // undefined
+        console.log(map.has("age")); // false
+        console.log(map.get("age")); // undefined
+        console.log(map.size); // 0
+
+    </script>
+</body>
+
+</html>
