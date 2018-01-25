@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Iterators and Generators</title>
+</head>
+
+<body>
+    <h2>Built-in Iterators</h2>
+    <h3>String Iterators</h3>
+
+    <div id="div_1"></div>
+    <div id="div_2"></div>
+    <div id="div_3"></div>
+
+    <script>
+        let smallNumbers = [1, 2, 3],
+            bigNumbers = [100, 101, 102],
+            allNumbers = [0, ...smallNumbers, ...bigNumbers];
+
+        console.log(allNumbers.length); // 7
+        console.log(allNumbers); // [0, 1, 2, 3, 100, 101, 102]
+
+    </script>
+</body>
+
+</html>

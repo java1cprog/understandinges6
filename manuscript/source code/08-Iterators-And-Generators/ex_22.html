@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Iterators and Generators</title>
+</head>
+
+<body>
+    <h2>The Spread Operator and Non-Array Iterables</h2>
+    <h3>String Iterators</h3>
+
+    <div id="div_1"></div>
+    <div id="div_2"></div>
+    <div id="div_3"></div>
+
+    <script>
+        {
+            let set = new Set([1, 2, 3, 3, 3, 4, 5]),
+                array = [...set];
+
+            console.log(array); // [1,2,3,4,5]    
+        }
+
+        {
+            let map = new Map([
+                    ["name", "Nicholas"],
+                    ["age", 25]
+                ]),
+                array = [...map];
+
+            console.log(array); // [ ["name", "Nicholas"], ["age", 25]]
+
+        }
+
+    </script>
+</body>
+
+</html>

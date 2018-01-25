@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Iterators and Generators</title>
+</head>
+
+<body>
+    <h2>Built-in Iterators</h2>
+    <h3>Collection Iterators</h3>
+    <h4>The keys() Iterator</h4>
+
+    <script>
+        let colors = ["red", "green", "blue"];
+        let tracking = new Set([1234, 5678, 9012]);
+        let data = new Map();
+
+        data.set("title", "Understanding ECMAScript 6");
+        data.set("format", "ebook");
+
+        for (let key of colors.keys()) {
+            console.log(key);
+        }
+
+        for (let key of tracking.keys()) {
+            console.log(key);
+        }
+
+        for (let key of data.keys()) {
+            console.log(key);
+        }
+
+    </script>
+</body>
+
+</html>

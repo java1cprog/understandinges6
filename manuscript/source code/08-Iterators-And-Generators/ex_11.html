@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Iterators and Generators</title>
+</head>
+
+<body>
+    <h2>Iterables and for-of</h2>
+    <h3>Creating Iterables</h3>
+
+    <script>
+        let collection = {
+            items: [],
+            *[Symbol.iterator]() {
+                for (let item of this.items) {
+                    yield item;
+                }
+            }
+
+        };
+
+        collection.items.push(1);
+        collection.items.push(2);
+        collection.items.push(3);
+
+        for (let x of collection) {
+            console.log(x);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Iterators and Generators</title>
+</head>
+
+<body>
+    <h2>What are Iterators?</h2>
+    <script>
+        function createIterator(items) {
+
+            var i = 0;
+
+            return {
+                next: function() {
+
+                    var done = (i >= items.length);
+                    var value = !done ? items[i++] : undefined;
+
+                    return {
+                        done: done,
+                        value: value
+                    };
+
+                }
+            };
+        }
+
+        var iterator = createIterator([1, 2, 3]);
+
+        console.log(iterator.next()); // "{ value: 1, done: false }"
+        console.log(iterator.next()); // "{ value: 2, done: false }"
+        console.log(iterator.next()); // "{ value: 3, done: false }"
+        console.log(iterator.next()); // "{ value: undefined, done: true }"
+
+        // for all further calls
+        console.log(iterator.next()); // "{ value: undefined, done: true }"
+
+    </script>
+</body>
+
+</html>

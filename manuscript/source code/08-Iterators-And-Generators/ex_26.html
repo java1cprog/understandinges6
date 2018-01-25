@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Iterators and Generators</title>
+</head>
+
+<body>
+    <h2>Advanced Iterator Functionality</h2>
+    <h3>Throwing Errors in Iterators</h3>
+
+    <script>
+        function* createIterator() {
+            let first = yield 1;
+            let second = yield first + 2; // yield 4 + 2, then throw
+            yield second + 3; // never is executed
+        }
+
+        let iterator = createIterator();
+
+        console.log(iterator.next()); // "{ value: 1, done: false }"
+        console.log(iterator.next(4)); // "{ value: 6, done: false }"
+        console.log(iterator.throw(new Error("Boom"))); // error thrown from generator
+
+    </script>
+</body>
+
+</html>

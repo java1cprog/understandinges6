@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Iterators and Generators</title>
+</head>
+
+<body>
+    <h2>What Are Generators?</h2>
+    <h3>Generator Object Methods</h3>
+    <script>
+        {
+            var o = {
+
+                createIterator: function*(items) {
+                    for (let i = 0; i < items.length; i++) {
+                        yield items[i];
+                    }
+                }
+            };
+
+            let iterator = o.createIterator([1, 2, 3]);
+            console.log(iterator);
+        }
+
+        {
+            var o = {
+
+                * createIterator(items) {
+                    for (let i = 0; i < items.length; i++) {
+                        yield items[i];
+                    }
+                }
+            };
+
+            let iterator = o.createIterator([1, 2, 3]);
+            console.log(iterator);
+        }
+
+    </script>
+</body>
+
+</html>
