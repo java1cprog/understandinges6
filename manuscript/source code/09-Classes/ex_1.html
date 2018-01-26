@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Class-Like Structures in ECMAScript 5</h2>
+    <script>
+        function PersonType(name) {
+            this.name = name;
+        }
+
+        PersonType.prototype.sayName = function() {
+            console.log(this.name);
+        };
+
+        let person = new PersonType("Nicholas");
+        person.sayName(); // outputs "Nicholas"
+
+        console.log(person instanceof PersonType); // true
+        console.log(person instanceof Object); // true
+
+    </script>
+</body>
+
+</html>

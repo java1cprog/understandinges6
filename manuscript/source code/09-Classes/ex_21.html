@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Inheritance with Derived Classes</h2>
+    <h3>Derived Classes from Expressions</h3>
+    <script>
+        function Rectangle(length, width) {
+            this.length = length;
+            this.width = width;
+        }
+
+        Rectangle.prototype.getArea = function() {
+            return this.length * this.width;
+        };
+
+        class Square extends Rectangle {
+            constructor(length) {
+                super(length, length);
+            }
+        }
+
+        var x = new Square(3);
+        console.log(x.getArea()); // 9
+        console.log(x instanceof Rectangle); // true
+
+    </script>
+</body>
+
+</html>

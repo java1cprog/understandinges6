@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Inheritance with Derived Classes</h2>
+    <h3>The Symbol.species Property</h3>
+    <script>
+        class MyArray extends Array {
+            // empty
+        }
+
+        let items = new MyArray(1, 2, 3, 4),
+            subitems = items.slice(1, 3);
+
+        console.log(items instanceof MyArray); // true
+        console.log(subitems instanceof MyArray); // true
+
+        console.log(items instanceof Array); // true
+        console.log(subitems instanceof Array); // true
+
+    </script>
+</body>
+
+</html>

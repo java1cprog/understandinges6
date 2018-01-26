@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Inheritance with Derived Classes</h2>
+    <h3>Shadowing Class Methods</h3>
+    <script>
+        class Rectangle {
+
+            constructor(length, width) {
+                this.length = length;
+                this.width = width;
+            }
+
+            getArea() {
+                return this.length * this.width;
+            }
+        }
+
+        class Square extends Rectangle {
+
+            //            constructor(...args) {
+            //                super(...args);
+            //            }
+
+            constructor(length) {
+
+                // same as Rectangle.call(this, length, length)
+                super(length, length);
+            }
+
+            // override and shadow Rectangle.prototype.getArea()
+            getArea() {
+                return this.length * this.length
+                //    * 10
+                ;
+            }
+
+            // override, shadow, and call Rectangle.prototype.getArea()
+            getArea() {
+                return super.getArea();
+            }
+
+
+        }
+
+        var square = new Square(3);
+
+        console.log(square.getArea()); // 9
+        console.log(square instanceof Square); // true
+        console.log(square instanceof Rectangle); // true
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Using new.target in Class Constructors</h2>
+
+    <script>
+        // abstract base class
+        class Shape {
+            constructor() {
+                if (new.target === Shape) {
+                    throw new Error("This class cannot be instantiated directly.")
+                }
+            }
+        }
+
+        class Rectangle extends Shape {
+            constructor(length, width) {
+                super();
+                this.length = length;
+                this.width = width;
+            }
+        }
+
+        try {
+            var x = new Shape(); // throws error
+        } catch (e) {
+            console.log(e.message);
+        }
+
+
+        var y = new Rectangle(3, 4); // no error
+        console.log(y instanceof Shape); // true
+
+    </script>
+</body>
+
+</html>

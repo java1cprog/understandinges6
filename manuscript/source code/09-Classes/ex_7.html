@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Classes as First-Class Citizens</h2>
+
+    <script>
+        function createObject(classDef) {
+            return new classDef();
+        }
+
+        let obj = createObject(class {
+
+            sayHi() {
+                console.log("Hi!");
+            }
+        });
+
+        obj.sayHi(); // "Hi!"
+
+    </script>
+</body>
+
+</html>

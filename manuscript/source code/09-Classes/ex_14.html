@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Generator Methods</h2>
+
+    <script>
+        class Collection {
+
+            constructor() {
+                this.items = [];
+            }
+
+            *[Symbol.iterator]() {
+                //yield* this.items.values();
+                yield* this.items.map(x => x);
+               
+            }
+        }
+
+        var collection = new Collection();
+        collection.items.push(1);
+        collection.items.push(2);
+        collection.items.push(3);
+
+        for (let x of collection) {
+            console.log(x);
+        }
+
+        // Output:
+        // 1
+        // 2
+        // 3
+
+    </script>
+</body>
+
+</html>

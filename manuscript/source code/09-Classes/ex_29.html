@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Introducing JavaScript Classes</title>
+</head>
+
+<body>
+    <h2>Inheritance with Derived Classes</h2>
+    <h3>The Symbol.species Property</h3>
+    <script>
+        class MyClass {
+            static get[Symbol.species]() {
+                return this;
+            }
+
+            constructor(value) {
+                this.value = value;
+            }
+
+            clone() {
+                return new this.constructor[Symbol.species](this.value);
+            }
+        }
+
+        class MyDerivedClass1 extends MyClass {
+            // empty
+        }
+
+        class MyDerivedClass2 extends MyClass {
+            static get[Symbol.species]() {
+                return MyClass;
+            }
+        }
+
+        let instance1 = new MyDerivedClass1("foo"),
+            clone1 = instance1.clone(),
+            instance2 = new MyDerivedClass2("bar"),
+            clone2 = instance2.clone();
+
+        console.log(clone1 instanceof MyClass); // true
+        console.log(clone1 instanceof MyDerivedClass1); // true
+        console.log(clone2 instanceof MyClass); // true
+        console.log(clone2 instanceof MyDerivedClass2); // false
+      //  console.log(instance2 instanceof MyDerivedClass2); // false
+
+    </script>
+</body>
+
+</html>
