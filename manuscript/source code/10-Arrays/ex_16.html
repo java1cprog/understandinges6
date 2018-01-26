@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Improved Array Capabilities</title>
+</head>
+
+<body>
+    <h2>Typed Arrays</h2>
+    <h3>Array Buffers</h3>
+
+    <script>
+        let buffer = new ArrayBuffer(10); // allocate 10 bytes
+
+        let buffer2 = buffer.slice(4, 6);
+        console.log(buffer2.byteLength); // 2
+
+    </script>
+</body>
+
+</html>

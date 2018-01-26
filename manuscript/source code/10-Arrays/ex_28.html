@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Improved Array Capabilities</title>
+</head>
+
+<body>
+    <h2>Similarities Between Typed and Regular Arrays</h2>
+    <h3>The Same Iterators</h3>
+    <script>
+        let ints = new Int16Array([25, 50]),
+            intsArray = [...ints];
+
+        console.log(intsArray instanceof Array); // true
+        console.log(intsArray[0]); // 25
+        console.log(intsArray[1]); // 50
+
+    </script>
+</body>
+
+</html>

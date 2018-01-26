@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Improved Array Capabilities</title>
+</head>
+
+<body>
+    <h2>Typed Arrays</h2>
+    <h3>Element Size</h3>
+    <h4>Creating Type-Specific Views</h4>
+
+    <script>
+        let buffer = new ArrayBuffer(10),
+            view1 = new Int8Array(buffer),
+            view2 = new Int8Array(buffer, 5, 2);
+
+        console.log(view1.buffer === buffer); // true
+        console.log(view2.buffer === buffer); // true
+        console.log(view1.byteOffset); // 0
+        console.log(view2.byteOffset); // 5
+        console.log(view1.byteLength); // 10
+        console.log(view2.byteLength); // 2
+
+    </script>
+</body>
+
+</html>

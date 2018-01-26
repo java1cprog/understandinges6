@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Improved Array Capabilities</title>
+</head>
+
+<body>
+    <h2>Creating Arrays</h2>
+    <h3>The Array.from() Method</h3>
+    <h4>Mapping Conversion</h4>
+
+    <script>
+        function translate() {
+            return Array.from(arguments, (value) => value + 1);
+        }
+
+        let numbers = translate(1, 2, 3);
+
+        console.log(numbers); // 2,3,4
+
+    </script>
+</body>
+
+</html>

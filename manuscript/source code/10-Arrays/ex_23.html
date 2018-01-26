@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Improved Array Capabilities</title>
+</head>
+
+<body>
+    <h2>Typed Arrays</h2>
+    <h3>Element Size</h3>
+    <h4>Creating Type-Specific Views</h4>
+
+    <script>
+        let ints = new Int16Array(2),
+            floats = new Float32Array(5);
+
+        console.log(ints.byteLength); // 4
+        console.log(ints.length); // 2
+
+        console.log(floats.byteLength); // 20
+        console.log(floats.length); // 5
+
+    </script>
+</body>
+
+</html>

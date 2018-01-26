@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Improved Array Capabilities</title>
+</head>
+
+<body>
+    <h2>Typed Arrays</h2>
+    <h3>Element Size</h3>
+    <h4>Creating Type-Specific Views</h4>
+
+    <script>
+        let ints1 = new Int16Array([25, 50]),
+            ints2 = new Int32Array(ints1);
+
+        console.log(ints1.buffer === ints2.buffer); // false
+
+        console.log(ints1.byteLength); // 4
+        console.log(ints1.length); // 2
+        console.log(ints1[0]); // 25
+        console.log(ints1[1]); // 50
+
+        console.log(ints2.byteLength); // 8
+        console.log(ints2.length); // 2
+        console.log(ints2[0]); // 25
+        console.log(ints2[1]); // 50
+
+    </script>
+</body>
+
+</html>
