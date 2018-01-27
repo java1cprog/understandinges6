@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Promises and Asynchronous Programming</title>
+</head>
+
+<body>
+    <h2>Chaining Promises</h2>
+    <h3>Returning Promises in Promise Chains</h3>
+
+    <script>
+        let p1 = new Promise(function(resolve, reject) {
+            resolve(42);
+        });
+
+        let p2 = new Promise(function(resolve, reject) {
+            reject(43);
+        });
+
+        p1.then(function(value) {
+            // first fulfillment handler
+            console.log(value); // 42
+            return p2;
+        }).then(function(value) {
+            // second fulfillment handler
+            console.log(value); // never called
+        });
+
+    </script>
+</body>
+
+</html>

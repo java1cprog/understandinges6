@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Promises and Asynchronous Programming</title>
+</head>
+
+<body>
+    <h2>Promise Basics</h2>
+    <h3>Executor Errors</h3>
+
+
+    <script>
+        let promise = new Promise(function(resolve, reject) {
+            try {
+                throw new Error("Explosion!");
+            } catch (ex) {
+                reject(ex);
+            }
+        });
+
+        promise.catch(function(error) {
+            console.log(error.message); // "Explosion!"
+        });
+
+    </script>
+</body>
+
+</html>

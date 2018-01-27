@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Promises and Asynchronous Programming</title>
+</head>
+
+<body>
+    <h2>Promise Basics</h2>
+    <h3>Creating Settled Promises</h3>
+    <h4>Non-Promise Thenables</h4>
+
+    <script>
+        let thenable = {
+            then: function(resolve, reject) {
+                resolve(42);
+            }
+        };
+        let p1 = Promise.resolve(thenable);
+        p1.then(function(value) {
+            console.log(value); // 42
+        });
+
+    </script>
+</body>
+
+</html>
