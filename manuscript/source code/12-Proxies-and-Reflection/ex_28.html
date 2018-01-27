@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Function Proxies with the `apply` and `construct` Traps</h2>
+    <h3>Validating Function Parameters</h3>
+    <script>
+        // adds together all arguments
+        function sum(...values) {
+            return values.reduce((previous, current) => previous + current, 0);
+        }
+
+        let sumProxy = new Proxy(sum, {
+            apply: function(trapTarget, thisArg, argumentList) {
+
+                argumentList.forEach((arg) => {
+                    if (typeof arg !== "number") {
+                        throw new TypeError("All arguments must be numbers.");
+                    }
+                });
+
+                return Reflect.apply(trapTarget, thisArg, argumentList);
+            },
+            construct: function(trapTarget, argumentList) {
+                throw new TypeError("This function can't be called with new.");
+            }
+        });
+
+        console.log(sumProxy(1, 2, 3, 4)); // 10
+
+        // throws error
+        console.log(sumProxy(1, "2", 3, 4));
+
+        // also throws error
+        let result = new sumProxy();
+
+    </script>
+</body>
+
+</html>

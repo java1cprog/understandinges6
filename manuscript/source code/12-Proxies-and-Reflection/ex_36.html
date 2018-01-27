@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Solving the Array Problem</h2>
+    <h3>Detecting Array Indices</h3>
+    <script>
+        function toUint32(value) {
+            return Math.floor(Math.abs(Number(value))) % Math.pow(2, 32);
+        }
+
+        function isArrayIndex(key) {
+            let numericKey = toUint32(key);
+            return String(numericKey) == key && numericKey < (Math.pow(2, 32) - 1);
+        }
+
+        console.log(toUint32(Math.PI));
+    </script>
+</body>
+
+</html>

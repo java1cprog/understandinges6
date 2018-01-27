@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Solving the Array Problem</h2>
+    <h3>Proxies as Prototypes on Classes</h3>
+    <script>
+        function NoSuchProperty() {
+            // empty
+        }
+
+        NoSuchProperty.prototype = new Proxy({}, {
+            get(trapTarget, key, receiver) {
+                throw new ReferenceError(`${key} doesn't exist`);
+            }
+        });
+
+        class Square extends NoSuchProperty {
+            constructor(length, width) {
+                super();
+                this.length = length;
+                this.width = width;
+            }
+
+            getArea() {
+                return this.length * this.width;
+            }
+        }
+
+        let shape = new Square(2, 6);
+
+        let area1 = shape.length * shape.width;
+        console.log(area1); // 12
+
+        let area2 = shape.getArea();
+        console.log(area2); // 12
+
+        // throws an error because "wdth" doesn't exist
+        let area3 = shape.length * shape.wdth;
+
+    </script>
+</body>
+
+</html>

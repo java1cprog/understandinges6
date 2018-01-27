@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Property Descriptor Traps</h2>
+    <h3>Descriptor Object Restrictions</h3>
+    <script>
+        let proxy = new Proxy({}, {
+            getOwnPropertyDescriptor(trapTarget, key) {
+                return {
+                    name: "proxy"
+                };
+            }
+        });
+
+        // throws error
+        let descriptor = Object.getOwnPropertyDescriptor(proxy, "name");
+
+    </script>
+</body>
+
+</html>

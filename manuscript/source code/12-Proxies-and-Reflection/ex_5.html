@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Object Shape Validation Using the `get` Trap</h2>
+    <script>
+        let proxy = new Proxy({}, {
+            get(trapTarget, key, receiver) {
+                if (!(key in receiver)) {
+                    throw new TypeError("Property " + key + " doesn't exist.");
+                }
+
+                return Reflect.get(trapTarget, key, receiver);
+            }
+        });
+
+        // adding a property still works
+        proxy.name = "proxy";
+        console.log(proxy.name); // "proxy"
+
+        // nonexistent properties throw an error
+        console.log(proxy.nme); // throws error
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Function Proxies with the `apply` and `construct` Traps</h2>
+    <h3>Overriding Abstract Base Class Constructors</h3>
+    <script>
+        class AbstractNumbers {
+
+            constructor(...values) {
+                if (new.target === AbstractNumbers) {
+                    throw new TypeError("This function must be inherited from.");
+                }
+
+                this.values = values;
+            }
+        }
+
+        class Numbers extends AbstractNumbers {}
+
+        let instance = new Numbers(1, 2, 3, 4);
+        console.log(instance.values); // [1,2,3,4]
+
+        // throws error
+        new AbstractNumbers(1, 2, 3, 4);
+
+    </script>
+</body>
+
+</html>

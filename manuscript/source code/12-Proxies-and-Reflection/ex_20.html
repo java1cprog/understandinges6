@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Property Descriptor Traps</h2>
+    <h3>Blocking Object.defineProperty()</h3>
+    <script>
+        let proxy = new Proxy({}, {
+            defineProperty(trapTarget, key, descriptor) {
+
+                if (typeof key === "symbol") {
+                    return false;
+                }
+
+                return Reflect.defineProperty(trapTarget, key, descriptor);
+            }
+        });
+
+
+        Object.defineProperty(proxy, "name", {
+            value: "proxy"
+        });
+
+        console.log(proxy.name); // "proxy"
+
+        let nameSymbol = Symbol("name");
+
+        // throws error
+        Object.defineProperty(proxy, nameSymbol, {
+            value: "proxy"
+        });
+
+    </script>
+</body>
+
+</html>

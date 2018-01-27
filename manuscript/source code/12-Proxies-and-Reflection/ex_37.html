@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Solving the Array Problem</h2>
+    <h3>Increasing length when Adding New Elements</h3>
+    <script>
+        function toUint32(value) {
+            return Math.floor(Math.abs(Number(value))) % Math.pow(2, 32);
+        }
+
+        function isArrayIndex(key) {
+            let numericKey = toUint32(key);
+            return String(numericKey) == key && numericKey < (Math.pow(2, 32) - 1);
+        }
+
+        function createMyArray(length = 0) {
+            return new Proxy({
+                length
+            }, {
+                set(trapTarget, key, value) {
+
+                    let currentLength = Reflect.get(trapTarget, "length");
+
+                    // the special case
+                    if (isArrayIndex(key)) {
+                        let numericKey = Number(key);
+
+                        if (numericKey >= currentLength) {
+                            Reflect.set(trapTarget, "length", numericKey + 1);
+                        }
+                    }
+
+                    // always do this regardless of key type
+                    return Reflect.set(trapTarget, key, value);
+                }
+            });
+        }
+
+        let colors = createMyArray(3);
+        console.log(colors.length); // 3
+
+        colors[0] = "red";
+        colors[1] = "green";
+        colors[2] = "blue";
+
+        console.log(colors.length); // 3
+
+        colors[3] = "black";
+
+        console.log(colors.length); // 4
+        console.log(colors[3]); // "black"
+
+    </script>
+</body>
+
+</html>

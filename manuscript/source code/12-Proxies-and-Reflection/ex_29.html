@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Function Proxies with the `apply` and `construct` Traps</h2>
+    <h3>Validating Function Parameters</h3>
+    <script>
+        function Numbers(...values) {
+            this.values = values;
+        }
+
+        let NumbersProxy = new Proxy(Numbers, {
+
+            apply: function(trapTarget, thisArg, argumentList) {
+                throw new TypeError("This function must be called with new.");
+            },
+
+            construct: function(trapTarget, argumentList) {
+                argumentList.forEach((arg) => {
+                    if (typeof arg !== "number") {
+                        throw new TypeError("All arguments must be numbers.");
+                    }
+                });
+
+                return Reflect.construct(trapTarget, argumentList);
+            }
+        });
+
+        let instance = new NumbersProxy(1, 2, 3, 4);
+        console.log(instance.values); // [1,2,3,4]
+
+        // throws error
+        NumbersProxy(1, 2, 3, 4);
+
+    </script>
+</body>
+
+</html>

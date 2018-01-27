@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Hiding Property Existence Using the `has` Trap</h2>
+    <script>
+        let target = {
+            value: 42
+        };
+
+        console.log("value" in target); // true
+        console.log("toString" in target); // true
+
+    </script>
+</body>
+
+</html>

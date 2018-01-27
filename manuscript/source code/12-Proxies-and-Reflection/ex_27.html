@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Function Proxies with the `apply` and `construct` Traps</h2>
+
+    <script>
+        let target = function() {
+                return 42
+            },
+            proxy = new Proxy(target, {
+                apply: function(trapTarget, thisArg, argumentList) {
+                    return Reflect.apply(trapTarget, thisArg, argumentList);
+                },
+                construct: function(trapTarget, argumentList) {
+                    return Reflect.construct(trapTarget, argumentList);
+                }
+            });
+
+        // a proxy with a function as its target looks like a function
+        console.log(typeof proxy); // "function"
+
+        console.log(proxy()); // 42
+
+        var instance = new proxy();
+        console.log(instance instanceof proxy); // true
+        console.log(instance instanceof target); // true
+
+    </script>
+</body>
+
+</html>

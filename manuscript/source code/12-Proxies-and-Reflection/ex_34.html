@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Function Proxies with the `apply` and `construct` Traps</h2>
+    <h3>Callable Class Constructors</h3>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+
+        let PersonProxy = new Proxy(Person, {
+            apply: function(trapTarget, thisArg, argumentList) {
+                return new trapTarget(...argumentList);
+            }
+        });
+
+
+        let me = PersonProxy("Nicholas");
+        console.log(me.name); // "Nicholas"
+        console.log(me instanceof Person); // true
+        console.log(me instanceof PersonProxy); // true
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Duplicate Descriptor Methods</h2>
+    <h3>getOwnPropertyDescriptor() Methods</h3>
+    <script>
+        let descriptor1 = Object.getOwnPropertyDescriptor(2, "name");
+        console.log(descriptor1); // undefined
+
+        // throws an error
+        let descriptor2 = Reflect.getOwnPropertyDescriptor(2, "name");
+
+    </script>
+</body>
+
+</html>

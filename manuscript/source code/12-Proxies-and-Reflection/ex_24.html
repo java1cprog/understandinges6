@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Duplicate Descriptor Methods</h2>
+    <h3>Descriptor Object Restrictions</h3>
+    <script>
+        let target = {};
+
+        let result1 = Object.defineProperty(target, "name", {
+            value: "target "
+        });
+
+        console.log(target === result1); // true
+
+        let result2 = Reflect.defineProperty(target, "name", {
+            value: "reflect"
+        });
+
+        console.log(result2); // true
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Prototype Proxy Traps</h2>
+    <h3>How Prototype Proxy Traps Work</h3>
+    <script>
+        let target = {};
+        let proxy = new Proxy(target, {
+            getPrototypeOf(trapTarget) {
+                return null;
+            },
+            setPrototypeOf(trapTarget, proto) {
+                return false;
+            }
+        });
+
+        let targetProto = Object.getPrototypeOf(target);
+        let proxyProto = Object.getPrototypeOf(proxy);
+
+        console.log(targetProto === Object.prototype); // true
+        console.log(proxyProto === Object.prototype); // false
+        console.log(proxyProto); // null
+
+        // succeeds
+        Object.setPrototypeOf(target, {});
+
+        // throws error
+        Object.setPrototypeOf(proxy, {});
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>The Array Problem</h2>
+    <script>
+        let colors = ["red", "green", "blue"];
+
+        console.log(colors.length); // 3
+
+        colors[3] = "black";
+
+        console.log(colors.length); // 4
+        console.log(colors[3]); // "black"
+
+        colors.length = 2;
+
+        console.log(colors.length); // 2
+        console.log(colors[3]); // undefined
+        console.log(colors[2]); // undefined
+        console.log(colors[1]); // "green"
+
+
+    </script>
+</body>
+
+</html>

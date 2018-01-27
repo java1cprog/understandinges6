@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Solving the Array Problem</h2>
+    <h3>Using the `has` Trap on a Prototype</h3>
+    <script>
+        let target = {};
+        let thing = Object.create(new Proxy(target, {
+            has(trapTarget, key) {
+                return Reflect.has(trapTarget, key);
+            }
+        }));
+
+        // triggers the `has` proxy trap
+        console.log("name" in thing); // false
+
+        thing.name = "thing";
+
+        // does not trigger the `has` proxy trap
+        console.log("name" in thing); // true
+
+    </script>
+</body>
+
+</html>

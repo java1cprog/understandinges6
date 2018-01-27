@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Solving the Array Problem</h2>
+    <h3>Using the `get` Trap on a Prototype</h3>
+    <script>
+        let target = {};
+        let thing = Object.create(new Proxy(target, {
+            get(trapTarget, key, receiver) {
+                throw new ReferenceError(`${key} doesn't exist`);
+            }
+        }));
+
+        thing.name = "thing";
+
+        console.log(thing.name); // "thing"
+
+        // throw an error
+        let unknown = thing.unknown;
+
+    </script>
+</body>
+
+</html>

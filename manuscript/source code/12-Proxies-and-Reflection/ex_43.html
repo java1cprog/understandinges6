@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proxies and the Reflection API</title>
+</head>
+
+<body>
+    <h2>Solving the Array Problem</h2>
+    <h3>Using the `set` Trap on a Prototype</h3>
+    <script>
+        let target = {};
+        let thing = Object.create(new Proxy(target, {
+            set(trapTarget, key, value, receiver) {
+                return Reflect.set(trapTarget, key, value, receiver);
+            }
+        }));
+
+        console.log(thing.hasOwnProperty("name")); // false
+
+        // triggers the `set` proxy trap
+        thing.name = "thing";
+
+        console.log(thing.name); // "thing"
+        console.log(thing.hasOwnProperty("name")); // true
+
+        // does not trigger the `set` proxy trap
+        thing.name = "boo";
+
+        console.log(thing.name); // "boo"
+
+    </script>
+</body>
+
+</html>
